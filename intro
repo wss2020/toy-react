@@ -1,0 +1,14 @@
+搭建本地环境
+npm  init          初始化，一路 enter  下去，里面的内容，回来可以改
+
+
+使用 npm install 来安装 webpack
+--save-dev      会把我们安装的东西加入 到 我们的     package.json 的devDependencies 里面
+npm   install  webpack     webpack-cli   --save-dev
+
+
+
+安装了，关于babel的三个包
+npm   install   --save-dev   babel-loader   @babel/core  @babel/preset-env
+再安装Babel里面专门用来处理JSX的一个 plugin (插件程序) ,名字叫 plugin-transform-react-jsx
+npm   install  @babel/plugin-transform-react-jsx

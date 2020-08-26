@@ -22,6 +22,8 @@ render(
 ,document.body);
 
 
+//1121
+
 // render(
 //         <Mycomponent id="a" class="c" >
 //              <div class="div">   abc    </div>
