@@ -2,12 +2,12 @@
   "name": "toy-react",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "day1/main.js",
   "directories": {
-    "test": "test"
+    "test": "day1/test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \\\"Error: no day1/test specified\\\" && exit 1"
   },
   "repository": {
     "type": "git",

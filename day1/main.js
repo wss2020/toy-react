@@ -1,4 +1,4 @@
-import {createElement,Component,render} from  "./toy-react.js";
+import {createElement,Component,render} from "./toy-react.js";
 
 class Mycomponent extends Component{
     render(){
