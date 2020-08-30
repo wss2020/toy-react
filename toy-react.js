@@ -1,3 +1,7 @@
+// 这里我们来实现 toy-react.js 的重头戏。
+// 就是这个  setState
+
+
 const RENDER_TO_DOM = Symbol("render to dom");
 
 class ElementWrapper {
@@ -6,7 +10,11 @@ class ElementWrapper {
     }
 
     setAttribute(name,value) {
-       this.root.setAttribute(name,value);
+        if(name.match(/^on([\s\S]+)/)){
+            this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/,c => c.toLowerCase()),value);
+        }else{
+            this.root.setAttribute(name,value);
+        }
     }
 
     appendChild(component) {
@@ -14,11 +22,10 @@ class ElementWrapper {
         range.setStart(this.root,this.root.childNodes.length);
         range.setEnd(this.root,this.root.childNodes.length);
         component[RENDER_TO_DOM](range);
-        // this.root.appendChild(component.root);
     }
 
     [RENDER_TO_DOM](range) {
-       range.deleteContents();  // 内容给它删掉
+       range.deleteContents();
        range.insertNode(this.root);
     }
 
@@ -30,7 +37,7 @@ class TextWrapper {
     }
 
     [RENDER_TO_DOM](range) {
-        range.deleteContents();  // 内容给它删掉
+        range.deleteContents();
         range.insertNode(this.root);
     }
 }
@@ -50,14 +57,45 @@ export class Component{
     }
 
     [RENDER_TO_DOM](range) {
-        // 我们有了range之后，我们得把它存起来，才能够去重新绘制，
-        //先用一个变量把它保存一下。
-        // 我们对口的要对它进行初始化，
-        // 即在 constructor 中  this._range = null; 开始都是null
         this._range = range;
         this.render()[RENDER_TO_DOM](range);
     }
 
+    rerender() {
+        this._range.deleteContents();
+        this[RENDER_TO_DOM](this._range);
+    }
+
+    //我们先写上这个方法
+    // setState 会假设我们已经有了一个 state 这样的一个方法。
+    // 我们这样做一个这种 深拷贝 的合并。
+    // 所以说我们首先假设，已经有state这个方法了，但state有可能是null
+    // 所以我们写一个递归的形式去访问它，每一个的这种对象和属性，
+    setState(newState){
+
+        //为了防止 oldState直接上来就是null
+        if(this.state === null || typeof this.state !== "object"){
+            this.state = newState;
+            this.rerender();
+            return;
+        }
+
+
+        // 所以我们会写一个 merge，merge它会用一个 oldState 和 一个 newState，
+        // merge 里面我们就是 for 循环它的所有子节点，然后去merge
+        let merge = (oldState,newState){
+            // 假设 oldState,newState 都是object
+            for(let p in newState){
+            // 注意：null 的typeof的结果也是object,所以一定要把null拿出来单独去判断。
+                if(oldState[p] === null || typeof this.state !== "object"){
+
+                }
+            }
+        }
+
+        // merge 它会被递归的调用，最终的调法：
+        merge(this.state,newState)
+    }
 
 }
 
