@@ -1,3 +1,6 @@
+// 这里我们来实现 toy-react.js 的重头戏。
+// 就是这个  setState
+
 
 const RENDER_TO_DOM = Symbol("render to dom");
 
@@ -9,12 +12,8 @@ class ElementWrapper {
     setAttribute(name,value) {
         if(name.match(/^on([\s\S]+)/)){
             this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/,c => c.toLowerCase()),value);
-        } else{
-            if(name== "className"){
-                this.root.setAttribute("class",value);
-            }else{
-                this.root.setAttribute(name,value);
-            }
+        }else{
+            this.root.setAttribute(name,value);
         }
     }
 
@@ -62,28 +61,19 @@ export class Component{
         this.render()[RENDER_TO_DOM](range);
     }
 
-
-    // 点击 Tutorials 发现会有东西丢失
-    //
     rerender() {
-        // 运行 deleteContents 产生了一个全空的这样的一个range,
-        // 如果全空的range,它有相邻的range,它就能够被吞进去，它被吞进了下一个range里面，
-        //  然后我们再插入的时候，它就被会后面的range包含进去。
-        //  所以我们在rerender的时候，是需要保证这个range是不为空的。
-        // 为了保证range不空，我们需要先插入，然后再去删除，这样我们就没有关系了。
-        // 先插入，我们需要先设一个插入的range,
-        // 注意他的插入的点，它是一个没有范围的这样的一个点，它一定是最后是一个 startContainer 和 startOffset， 起点和终点是一样的。
-        // 所以这里都用老的range的起点，就可以了。
-        let range = document.createRange();
-        range.setStart(this._range.startContainer,this._range.startOffset);
-        range.setEnd(this._range.startContainer,this._range.startOffset);
-
         this._range.deleteContents();
         this[RENDER_TO_DOM](this._range);
     }
 
+    //我们先写上这个方法
+    // setState 会假设我们已经有了一个 state 这样的一个方法。
+    // 我们这样做一个这种 深拷贝 的合并。
+    // 所以说我们首先假设，已经有state这个方法了，但state有可能是null
+    // 所以我们写一个递归的形式去访问它，每一个的这种对象和属性，
     setState(newState){
 
+        //为了防止 oldState直接上来就是null
         if(this.state === null || typeof this.state !== "object"){
             this.state = newState;
             this.rerender();
@@ -91,8 +81,15 @@ export class Component{
         }
 
 
+        // 所以我们会写一个 merge，merge它会用一个 oldState 和 一个 newState，
+        // merge 里面我们就是 for 循环它的所有子节点，然后去merge
+        //  这里做的是一个深拷贝的一个设计
         let merge = (oldState, newState)=>{
+            // 假设 oldState,newState 都是object
             for (let p in newState) {
+                // 注意：null 的typeof的结果也是object,所以一定要把null拿出来单独去判断。
+                //如果你不注意，这个地方就会很惨，它会给你制造各种稀奇古怪的麻烦
+                // 所以typeof的结果判定的时候，一定要跟等于null联合使用，尤其是设计到object的时候
                 if (oldState[p] === null || typeof oldState[p] !== "object") {
                     oldState[p] = newState[p];
                 } else {
@@ -100,8 +97,11 @@ export class Component{
                 }
             }
         };
+
+        // merge 它会被递归的调用，最终的调法：
         merge(this.state,newState);
 
+        // 都成功了以后，同样要调用这个 rerender
         this.rerender();
     }
 
@@ -117,16 +117,10 @@ export function createElement(type,attributes,...children){
     for(let p in attributes){
         e.setAttribute(p,attributes[p]);
     }
-
-    // insertChildren的时候，如果说这个child是null,
-    // 那么我们就不去处理它了
     let insertChildren = (children)=>{
         for(let child of children){
             if(typeof child === 'string'){
                 child = new TextWrapper(child);
-            }
-            if(child === null){
-               continue;
             }
             if( (typeof  child === "object") && (child instanceof Array) ){
                 insertChildren(child);

@@ -1,43 +1,79 @@
+// 接下来，实现react的这个 Tutorials, 也就是 React 教程里面的Demo 尝试去跑起来
+
 import {createElement,Component,render} from "./toy-react.js";
 
-class Mycomponent extends Component{
-    constructor(){
-        super();
-        this.state ={
-            a:1,
-            b:2
-        }
+
+class Square extends Component {
+    // TODO: remove the constructor
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: null,
+        };
     }
-    render(){
-        return <div>
-              <h1>my component sss</h1>
 
-            // 但是我们的API 还跟 React 不一样，
-            // 我们看这里的API,
-            // 真正的react,this.state.a ++; this.rerender(); 其实是合成一句的。
-            // 它就是一个 setState，那么setState 跟我们相比，它有两个不同的点。
-            // 一个是setState 它能够实现这种对象的合并，它会把这个旧的state跟新的state，给它合并起来。
-                  // 它不会把旧的完全地替换掉，而我们的这个是一种手工操作。
-            // 另一个呢，它这个rerender是不需要去手工的去调用的，当然还有一些其它的细节，我们暂且不管。
-
-             <button onclick={()=>{ this.state.a ++; this.rerender(); }}>add</button>
-
-              <span> {this.state.a.toString()} </span>
-
-        </div>
+    render() {
+        // TODO: use onClick={this.props.onClick}
+        // TODO: replace this.state.value with this.props.value
+        return (
+            <button className="square" onClick={() => this.setState({value: 'X'})}>
+        {this.state.value}
+    </button>
+    );
     }
 }
 
+class Board extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            squares: Array(9).fill(null),
+        };
+    }
+
+    renderSquare(i) {
+        return <Square value={this.state.squares[i]} />;
+    }
+
+    render() {
+        const status = 'Next player: X';
+
+        return (
+            <div>
+            <div className="status">{status}</div>
+            <div className="board-row">
+            {this.renderSquare(0)}{this.renderSquare(1)}{this.renderSquare(2)}
+    </div>
+        <div className="board-row">
+            {this.renderSquare(3)}{this.renderSquare(4)}{this.renderSquare(5)}
+    </div>
+        <div className="board-row">
+            {this.renderSquare(6)}{this.renderSquare(7)}{this.renderSquare(8)}
+    </div>
+        </div>
+    );
+    }
+}
+
+class Game extends Component {
+    render() {
+        return (
+            <div className="game">
+            <div className="game-board">
+            <Board />
+            </div>
+            <div className="game-info">
+            <div>{/* status */}</div>
+            <ol>{/* TODO */}</ol>
+            </div>
+            </div>
+    );
+    }
+}
+
+// ========================================
 
 render(
-        <Mycomponent  id='a'  class='c' >
-             <div>111</div>
-             <div>222</div>
-             <div>333</div>
-             <div>444</div>
-
-        </Mycomponent>
-,document.body);
-
-
-
+<Game />,
+    document.getElementById('root')
+);
