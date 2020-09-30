@@ -3,6 +3,8 @@
 import {createElement,Component,render} from "./toy-react.js";
 
 
+//fdsf
+
 class Square extends Component {
     // TODO: remove the constructor
     constructor(props) {
