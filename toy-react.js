@@ -108,6 +108,8 @@ export class Component{
 }
 
 export function createElement(type,attributes,...children){
+    console.log('-----------------------');
+    console.log(arguments);
     let e;
     if(typeof  type === "string"){
         e = new ElementWrapper(type);

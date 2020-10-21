@@ -2,24 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5723ab5-e49d-4dc7-8728-076cc954b583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/day2/test2/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day2/test2/toy-react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/编译代码1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/编译代码2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1/test/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1/test1/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1/test1/toy-react.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1/test2/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1/test2/toy-react.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1/toy-react.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2/test/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2/test/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2/test/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2/test/toy-react.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/toy-react.js" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,56 +28,32 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <dirStrings>
-      <dir>$PROJECT_DIR$</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/index.html" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1772" />
-    <option name="y" value="-8" />
-    <option name="width" value="1224" />
-    <option name="height" value="797" />
-  </component>
+  <component name="ProjectId" id="1iuLwXVErK9FOKB27ys3Pd2pDdA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -91,38 +67,32 @@
       <workItem from="1598184488405" duration="394000" />
       <workItem from="1599554649755" duration="8000" />
       <workItem from="1599555923648" duration="560000" />
+      <workItem from="1602752770138" duration="3200000" />
+      <workItem from="1602825237504" duration="478000" />
+      <workItem from="1602906893309" duration="5742000" />
+      <workItem from="1602939788680" duration="4811000" />
+      <workItem from="1602946268477" duration="55000" />
+      <workItem from="1602988996635" duration="3412000" />
+      <workItem from="1603016845140" duration="3938000" />
+      <workItem from="1603269149026" duration="694000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="962000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-1772" y="-8" width="1224" height="797" extended-state="0" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24958263" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html" />
+  <component name="WindowStateProjectService">
+    <state x="2027" y="243" width="745" height="616" key="find.popup" timestamp="1602753854000">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2027" y="243" width="745" height="616" key="find.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602753854000" />
+    <state x="1981" y="252" key="run.anything.popup" timestamp="1602915973896">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state x="1981" y="252" key="run.anything.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602915973896" />
+    <state x="798" y="23" width="838" height="1032" key="search.everywhere.popup" timestamp="1602942159987">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="798" y="23" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1602942159987" />
   </component>
 </project>
