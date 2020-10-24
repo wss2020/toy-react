@@ -1,5 +1,3 @@
-
-
 function createElement(type,attributes,...children){
     let e;
     if( typeof type == "string" ){     // type 是 string ，把它当成普通 element 去处理
@@ -12,8 +10,6 @@ function createElement(type,attributes,...children){
         // 在改变 wrapper 之前，我们就有分文件的需求了。
         e = new type;
     }
-
-
 
     for(let p in attributes){
         e.setAttribute(p,attributes[p]);     //设置指定元素上的某个属性值。如果属性已经存在，则更新该值；
@@ -34,16 +30,11 @@ function createElement(type,attributes,...children){
     JSX 里面有一个特殊的规定，如果你的标签名是小写，那就会认为你是一个原生的标签名，如果一旦我给 div 改一个名字，
  这个时候，编译出来的，就是我们自己定义的对象或者是 class ,一般认为我们编译出来的是一个 class ,二呢，根据最新的
  host API ，那么这个东西也可以是函数，我们这里就先尝试 class API 的这样的一种写法。
-
-
-
  **/
-
 
 document.body.appendChild(
        <div id="a" class="c" >
              dsfkjflkdsj
-
              <font class="div2">abc</font>
              <span class="span1">123</span>
              <p  class="p1">wss</p>

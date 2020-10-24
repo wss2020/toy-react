@@ -32,15 +32,13 @@ class TextWrapper{
     一个是 createElement , 一个是 createTextNode ,然后我们希望它的接口能跟我们的 MyComponent 一致，而我们的MyComponent
  我们会给它一个 render 接口，
  **/
-
-
 export function createElement(type,attributes,...children){
     // let e =  document.createElement(type);
     let e =  new Elementwrapper(type,attributes);
 
     for(let p in attributes){
         // e.setAttribute(p,attributes[p]);
-        e.setAttribute(p,p,attributes[p])
+        e.setAttribute(p,attributes[p])
     }
     for(let child of children){
         if(typeof child === 'string'){
