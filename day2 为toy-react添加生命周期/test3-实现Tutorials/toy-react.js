@@ -3,7 +3,7 @@ const RENDER_TO_DOM = Symbol("render to dom");
 
 class ElementWrapper {
     constructor(type) {
-        this.root = document.createElement(type);
+       this.root = document.createElement(type);
     }
 
     setAttribute(name,value) {
@@ -22,8 +22,8 @@ class ElementWrapper {
     }
 
     [RENDER_TO_DOM](range) {
-        range.deleteContents();
-        range.insertNode(this.root);
+       range.deleteContents();
+       range.insertNode(this.root);
     }
 
 }
@@ -41,16 +41,16 @@ class TextWrapper {
 
 export class Component{
     constructor() {
-        this.props = Object.create(null);
-        this.children = [];
-        this._root = null;
-        this._range = null;
+       this.props = Object.create(null);
+       this.children = [];
+       this._root = null;
+       this._range = null;
     }
     setAttribute(name,value) {
-        this.props[name] = value;
+       this.props[name] = value;
     }
     appendChild(component) {
-        this.children.push(component);
+       this.children.push(component);
     }
 
     [RENDER_TO_DOM](range) {
@@ -97,10 +97,6 @@ export function createElement(type,attributes,...children){
         for(let child of children){
             if(typeof child === 'string'){
                 child = new TextWrapper(child);
-            }
-            //加一个逻辑
-            if( child === null){
-               continue;
             }
             if( (typeof  child === "object") && (child instanceof Array) ){
                 insertChildren(child);

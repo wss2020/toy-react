@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5723ab5-e49d-4dc7-8728-076cc954b583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test2-实现setState/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials/toy-react.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/intro" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/intro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/test/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/test1/test1.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/test1/test1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/test1/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/test1/toy-react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/test2/test1.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/test2/test1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/test2/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/test2/toy-react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day1 JSX的原理和关键实现/toy-react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2/test/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test-基于range的Dom绘制/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2/test/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test-基于range的Dom绘制/toy-react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2/test1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test1-实现重新的绘制/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2/test1/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test1-实现重新的绘制/toy-react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2/test2/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2/test2/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test2-实现setState/toy-react.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/toy-react.js" afterDir="false" />
@@ -47,7 +34,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/day2 为toy-react添加生命周期" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -56,6 +43,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/day2 为toy-react添加生命周期" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -84,8 +72,16 @@
       <workItem from="1603285627036" duration="2735000" />
       <workItem from="1603354819389" duration="618000" />
       <workItem from="1603428737056" duration="7994000" />
-      <workItem from="1603544898406" duration="2717000" />
+      <workItem from="1603544898406" duration="5312000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;main.js">
+      <created>1603549962949</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603549962949</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,10 +96,11 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1860" y="206" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270394637" />
-    <state x="1892" y="23" key="CommitChangelistDialog2" timestamp="1603270338070">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="339" y="23" key="CommitChangelistDialog2" timestamp="1603549962786">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1892" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270338070" />
+    <state x="339" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1603549962786" />
     <state x="1539" y="123" width="1720" height="857" key="DiffContextDialog" timestamp="1603270326962">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -116,10 +113,11 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1949" y="263" key="MultipleFileMergeDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270371344" />
-    <state x="1900" y="228" key="Vcs.Push.Dialog.v2" timestamp="1603270347829">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="345" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603549964635">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1900" y="228" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270347829" />
+    <state x="345" y="193" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1603549964635" />
     <state x="2027" y="243" width="745" height="616" key="find.popup" timestamp="1602753854000">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
