@@ -1,7 +1,8 @@
 import {createElement, Component, render} from "./toy-react.js";
 
 /**
-
+ 接下来，我们来看看，如何从一颗VDOM 再去生成真实的 DOM ,首先 ElementWrapper 里面的 root 就不需要了，
+ 我们是基于VDOM 去做这个事情，然后我们看一下。
  **/
 
 class Square extends Component{
@@ -129,6 +130,9 @@ class Game extends Component {
 
 // ========================================
 render(<Game/>, document.getElementById("root"));
+// let game = <Game/>;
+// console.log(game.vdom);
+
 
 function calculateWinner(squares) {
     const lines = [
