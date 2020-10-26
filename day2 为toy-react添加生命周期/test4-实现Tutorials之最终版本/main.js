@@ -1,14 +1,22 @@
 import {createElement, Component, render} from "./toy-react.js";
 
 /**
- 上个版本结束，range 的小 bug 结束了，但是我们用的 React 的版本，还没有交换 player 的逻辑，
+    上个版本结束，range 的小 bug 结束了，但是我们用的 React 的版本，还没有交换 player 的逻辑，
  那么用一个它的最终版本的 Code .
- 我们注意这个 Square ，它用了 function 模式，我们不支持这个 function 模式，所以我们要做一些
+    我们注意这个 Square ，它用了 function 模式，我们不支持这个 function 模式，所以我们要做一些
  修改，我们把它放进 main.js 里面，
- 这个 Square 不支持，我们先格式化一下,然后我们要改成 class 的 API ,这个地方我们要套上一个 render
+    这个 Square 不支持，我们先格式化一下,然后我们要改成 class 的 API ,这个地方我们要套上一个 render
  函数，而这个props 要换成 this.props , 我们是 class based API, 所以就跟这个 this 是强相关的。
- 然后所有的 React.Component 都改成 Component.
- React.render 的地方，给它去掉，
+    然后所有的 React.Component 都改成 Component.
+    React.render 的地方，给它去掉，render 的时候就是一个 render .
+
+    重新 webpack ,没有经过任何的结构性的修改，只是我们故意把 API 设计得稍微现代一点，另外我们没有去实现
+ 这个 function 的 API ,这个 React 的 Tutorials 里面的代码，就已经能够完全地执行了，但是我们还需要注
+ 意一个问题，我们的代码里面，它的更新范围是非常大的，基本上发生了 root 级别的更新，而在 React 里面，我们
+ 可以看到，它的代码是非常的出色的， 点击可以看到，它基本上就只更新这个节点本身，它的更新的范围非常的小，所以
+ 说，React 的它的整个的虚拟Dom 的对比，能量就体现出来了，我们如果说想要去做一个跟 React 同样的水平，那是
+ 需要非常多的路要走的，但是我们在课程中，还是可以做一些简单的优化，把虚拟 Dom 引入进来，做到一个部分更新的这
+ 样的一个效果，下一节处理。
  **/
 
 // function Square(props) {

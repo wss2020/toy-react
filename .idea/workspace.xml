@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5723ab5-e49d-4dc7-8728-076cc954b583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials/toy-react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test4-实现Tutorials之最终版本/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test4-实现Tutorials之最终版本/toy-react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/dome-range.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials之解决range中的bug/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/day2 为toy-react添加生命周期/test3-实现Tutorials之解决range中的bug/toy-react.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/toy-react.js" afterDir="false" />
@@ -72,7 +75,8 @@
       <workItem from="1603285627036" duration="2735000" />
       <workItem from="1603354819389" duration="618000" />
       <workItem from="1603428737056" duration="7994000" />
-      <workItem from="1603544898406" duration="5312000" />
+      <workItem from="1603544898406" duration="5369000" />
+      <workItem from="1603674156645" duration="5390000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;main.js">
       <created>1603549962949</created>
@@ -81,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603549962949</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="基本功能实现">
+      <created>1603635345547</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603635345547</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,18 +100,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;main.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;main.js" />
+    <MESSAGE value="基本功能实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本功能实现" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1860" y="206" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603270394637">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1860" y="206" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270394637" />
-    <state x="339" y="23" key="CommitChangelistDialog2" timestamp="1603549962786">
+    <state x="339" y="23" key="CommitChangelistDialog2" timestamp="1603635345435">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1892" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270338070" />
-    <state x="339" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1603549962786" />
+    <state x="339" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1603635345435" />
     <state x="1539" y="123" width="1720" height="857" key="DiffContextDialog" timestamp="1603270326962">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -113,11 +125,11 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1949" y="263" key="MultipleFileMergeDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270371344" />
-    <state x="345" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603549964635">
+    <state x="345" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603635346887">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1900" y="228" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270347829" />
-    <state x="345" y="193" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1603549964635" />
+    <state x="345" y="193" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1603635346887" />
     <state x="2027" y="243" width="745" height="616" key="find.popup" timestamp="1602753854000">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
