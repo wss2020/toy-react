@@ -1,29 +1,4 @@
 
-/**
- 现在的代码，它会存在着一个 ElementWrapper 这样的一个 class ，还有一个 TextWrapper ，然后还有一个 Component
- 从继承关系上来说，ElementWrapper 和 TextWrapper ，其实也应该属于 Component 的一种，然后呢？我们现在实现 ElementWrapper
- 里面的逻辑，全都是针对 root 的一个操作，我们的所有的 ElementWrapper 上的方法，都是相当于 root 这个，真实的 Dom 元素的这
- 样的一个代理，
- 那么我们要想实现虚拟Dom,首先就需要把这些代理的能力给它去掉，然后我们要真正地去创建一个虚拟Dom,创建虚拟Dom,我们是需要一个
- 方法的，我们这里给一个方法，我们用一个 get 来表示，获取一个虚拟 DOM ,我们暂时不去动原来的 setAttribute 和 appendChild,
- 还有 RENDER_TO_DOM 的这些方法，那么独立地实现一个虚拟 DOM 的这个，这样的一个方法，
- 然后呢，我们发现其实虚拟 DOM 里面，我们对一个 ElementWrapper 来说，虚拟 DOM 要包含三样东西，一个是 type，另一个是它
- 的props,还有一个是 children ，但是 this.children ，它会是一个组建的children ，所以说，我们要把它变成vdom 的children，
- 那么我们还需要对它进行一个 map ,
- 那么我们发现这个type,我们就需要把它存起来，
- 然后 props 和 children ,我们上哪去找，其实我们就需要把 setAttribute 和 appendChild 这两个代码，给它做一定的改造，
- 我们发现 setAttribute 的时候，其实就是存 this.props、appendChild 的时候，而这个逻辑，刚好其实就是我们的 Component
- 里面的逻辑，所以我们把 Component 的这个类的位置，放到前面一点，放到它的最前，然后我们让 ElementWrapper 去 extends
- Component ,extends 完了，调一个 super ,同样 TextWrapper ,我们也给它继承这个 Component ,这样呢，我们的 Component
- 就可以默认的有 props 和 children ,有了 props 和 children ,那么我们的 get vdom ,它就可以正确地获取了。
- 那么接下来，我们来写 TextWrapper 的 vdom ,TextWrapper 的 vdom 很简单，它可能会多一个 content 的属性，我们在构造
- 函数里面，把它存上，就可以了，
- 接下来，我们可以实现这个 Component 的 get vdom ,其实非常简单，因为 Component 它的内容是由 render 决定的，所以说
- 我们就调一个 this.render().vdom;  实际上这是一个递归的调用，如果 render 还是一个 Component 的话，那么它还会调到
- Component 的 vdom ，如果一直到它是 ElementWrapper 的时候，那么它就不是了，
- 好，接下来我们到 main.js 里面去看一个，我们这里不做 render 了，
-
- **/
 const RENDER_TO_DOM = Symbol("render to dom");
 
 export class Component {
@@ -82,29 +57,32 @@ export class Component {
     }
 }
 
+/**
+
+ **/
 class ElementWrapper extends Component {
     constructor(type) {
         super(type);
         this.type = type;
         this.root = document.createElement(type);
     }
-    setAttribute(name, value) {
-        if (name.match(/^on([\s\S]+)/)) {
-            this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/, c => c.toLowerCase()), value);
-        } else {
-            if (name === "className") {
-                this.root.setAttribute("class", value);
-            } else {
-                this.root.setAttribute(name, value);
-            }
-        }
-    }
-    appendChild(component) {
-        let range = document.createRange();
-        range.setStart(this.root, this.root.childNodes.length);
-        range.setEnd(this.root, this.root.childNodes.length);
-        component[RENDER_TO_DOM](range);
-    }
+    // setAttribute(name, value) {
+    //     if (name.match(/^on([\s\S]+)/)) {
+    //         this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/, c => c.toLowerCase()), value);
+    //     } else {
+    //         if (name === "className") {
+    //             this.root.setAttribute("class", value);
+    //         } else {
+    //             this.root.setAttribute(name, value);
+    //         }
+    //     }
+    // }
+    // appendChild(component) {
+    //     let range = document.createRange();
+    //     range.setStart(this.root, this.root.childNodes.length);
+    //     range.setEnd(this.root, this.root.childNodes.length);
+    //     component[RENDER_TO_DOM](range);
+    // }
 
     get vdom() {
         return {
