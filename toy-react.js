@@ -24,7 +24,7 @@ export class Component {
     [RENDER_TO_DOM](range) {
         this._range = range;
         this._vdom = this.vdom;
-        this.render()[RENDER_TO_DOM](range);
+        this._vdom[RENDER_TO_DOM](range);
     }
 
 /**
@@ -58,14 +58,113 @@ export class Component {
     所以我们这个逻辑会分成两段，第一段是对比这个根节点是否一致的，第二段是对比它的 children 是否一致的，而这个对比
  children 是否一致，正是各种各样的这种 Diff 算法，它们登场的舞台，这里我们就用一个最土的同位置的比较的方法，它也能
  实现局部更新，好，我们来看，根节点怎么对比。
+
+    这里我们就用一个最土的同位置的比较方法，它也能实现局部更新，我们先来看根节点怎么对比，
+ 我们这里，把根节点对比单独地抽出一个函数来，这样我们比较方便去处理，它要返回一个 true 或
+ 者false ,我们最后默认 return true ,前面一旦我们找到不一样的，我们就给它短路 return
+ false 掉，
+    类型不同，节点不同，然后是属性不同，注意凡涉及 props 的，  如果属性值不一致的话，那么
+ 我们认为它是不同的，然后还有一个就是，如果旧的属性比新的属性多，那么我们也认为它是不同的，
+    好，最后是文本节点，我们要对比它的，这个 content ,节点对比的逻辑,大概就是这样啊。
+    我们再从头梳理一下，类型不同，属性不同，属性的数量不同，文本节点的内容不同，那么我们就
+ 认为它是不同的节点，那么我们就会做一个 replace 。
+
+    然后接下来，我们来继续回到我们的 update 里面，如果他们不是一样的 Node 的话，那么我们
+ 就会直接对，这个 oldNode 做一个覆盖，怎么覆盖，那么把 oldNode 的 range ,给它取出来，
+ 给它替换掉就行了，我们就调用 RENDER_TO_DOM 这个方法，这个时候就体现 range 的好处了，
+ oldNode 不管它在哪个位置，那么我们就可以把它的 range 直接给它替换掉，这个是一个不同的逻辑。
+ 我们就直接return 了，这是等于一个完全的全新渲染，因为新旧节点不一样，
+    然后如果新旧节点一样，那么我们就会把 oldNode 的 range ,给它强行地设置为 newNode 的
+ range ,我们注意啊，如果说 Node ,它不是 ElementWrapper ，那么肯定是不对的，它只有是
+ ElementWrapper 的时候，才可以这样干，否则的话，它里边如果有逻辑，它就会出问题，你也说不清，
+ 它的 children 在组件里边会怎么用，那么我们这样就可以看，它的 newNode 和 oldNode 是否
+ 相同，
+    接下来我们就开始处理 children 的问题，我们注意， newNode.children 这个属性，它里边
+ 放的是什么，它里边放的是 Component ,所以说我们需要一个 vchildren , oldChildren 其实
+ 你要拿的也是它的 vchildren ,那么这个 vchildren ,我们来看一下，其实我们 ElementWrapper
+ 上是没有这个逻辑的，所以怎么办，我们需要把这个逻辑给它加上去，因为这个 new 的这个 children
+ 这个 vchildren ,它是靠 get vdown 这个逻辑取出来的啊，所以说，我们为了加上这个东西，我们
+ 只能在 vdom 这个逻辑的地方加上，
  **/
-    update(){
-        let update = (oldNode, newNode)=>{
+/**
+    好,下面的ElementWrapper 修改完成之后，然后所有的 child 都会是 ElementRapper 这个
+ 类型的东西，然后这个时候，我们的newChild的里面，我们就去循环 newChildren ,
+    然后我们去看，oldChildren 里面是不是有这个东西，所以这个地方，我们用 for of 是不行的，
+ 因为他是个双数组同时循环，所以我们换回最传统的 for 循环，我们取一个newChild等于 newChild[i]
+ 再取一个 oldChild ，实际上 newChildren.length 是可能长于 oldChildren 的，我们这个地方
+ 继续去处理一下啊， 我们暂时不写 else ,不写 else 就意味着我们没有办法往上添加东西，这个else
+ 我们留一个 TODO，晚一点我们再写 ，那么这个时候，我们就选择递归地调用自己，
+    这样的话，我们就基本完成了代码的结构，那么让我们来运行起来。
+ **/
+/**
+    我们把 TODO 里的代码补全
+    如果 oldChildren 的数量小于 newChildren 的数量，那么我们在这个地方，就会需要去执行一个插入，
+ 那么这个地方，插入有点麻烦，因为我们需要知道，oldChildren 的最后一个，它边缘的这样的一个位置，所以
+ 我们需要在这个地方，加一个 let tailRange ,我们一开始让它等于 oldChildren 的最后一个，然后我们
+ 需要让它这个 range ,设到这个 range 的尾巴上去，
+    那么，所以我们这个时候要在这个地方，创建一个插入的range ,插入的range 会用 tailRange 的尾巴，
+ 就是我们在这个等于说我们在 range 的最后插一些东西，那么这个 tailRange ,所以说我们会给它的 Start End
+ 都设成 tailRange 的 end ,
+    这个 Start 和 End 是一样的，因为这个 range 是我们用来插入的一个空的 range ,然后接下来我们
+ 给这个range ,我们还是用 replace 的逻辑好吧，反正同时空的无所谓，我们直接用 newChild 的
+ RENDER_TO_DOM， RENDER_TO_DOM 然后这个地方我们就给出一个。
+    这样的话，我们就把 newChild 给它追加到这个后边了，这个时候，如果我们再有 newChild 怎么办，
+ 这个 newChild ,它肯定要继续往后边追加，那么所以我们要给它 tailRange 给它改掉，
+ tailRange = range;
+ **/
+    update() {
+        let idSameNode = (oldNode, newNode) => {
+            if(oldNode.type !== newNode.type)
+                return false;
+            for (let name in newNode.props) {
+                if (newNode.props[name] !== oldNode.props[name]) {
+                    return false;
+                }
+            }
+            if( Object.keys(oldNode.props).length > Object.keys(newNode.props) )
+                return false;
+            if(newNode.type === "#text"){
+                if(newNode.content !== oldNode.content)
+                    return false;
+            }
+            return true;
+        }
+        let update = (oldNode, newNode) => {
             // type, props, children
             // #text
+            if(!idSameNode(oldNode,newNode)){
+                newNode[RENDER_TO_DOM](oldNode._range);
+                return;
+            }
+            newNode._range = oldNode._range;
+
+            let newChildren = newNode.vchildren;
+            let oldChildren = oldNode.vchildren;
+
+            // 如果没有 Children 的话，我们就直接给它 return 掉好了。
+            if(!newChildren || !newChildren.length){
+                return ;
+            }
+            let tailRange = oldChildren[oldChildren.length - 1]._range;
+
+            // for(let child of newChildren){}
+            for(let i=0; i<newChildren.length; i++){
+                let newChild = newChildren[i];
+                let oldChild = oldChildren[i];
+                if(i < oldChildren.length){
+                    update(oldChild,newChild);
+                }else{
+                    let range = document.createRange();
+                    range.setStart(tailRange.endContainer, tailRange.endOffset);
+                    range.setEnd(tailRange.endContainer, tailRange.endOffset);
+                    newChild[RENDER_TO_DOM](range);
+                    tailRange = range;
+                    // TODO
+                }
+            }
         }
         let vdom = this.vdom;
-        update(this._vdom,vdom);
+        update(this._vdom, vdom);
         this._vdom = vdom;
     }
     // rerender() {
@@ -95,13 +194,29 @@ export class Component {
             }
         };
         merge(this.state, newState);
-        this.rerender();
+        // this.rerender();
+        this.update();
     }
 }
 
 /**
      接下来我们来看一看我们，setAttribute 和 appendChild 里面做的事情，我们就要让它在 RENDER_TO_DOM 这个
  里面去做，
+ **/
+/**
+    我们来看一下，其实我们 ElementWrapper
+ 上是没有这个逻辑的，所以怎么办，我们需要把这个逻辑给它加上去，因为这个 new 的这个 children
+ 这个 vchildren ,它是靠 get vdown 这个逻辑取出来的啊，所以说，我们为了加上这个东西，我们
+ 只能在 vdom 这个逻辑的地方加上，this.vchildren = this.children.map();
+ 这样我们就可以保证，任何一个 vdom 属性的这个树里面取出来，它的 children 都是有 vchildren
+ 这个属性的，这实际上也是一个递归调用，它要把它所有的 children ,也都变成它的 vdom 树，这样
+ 我们取出来的 vdom 树，一次性取出来的就是一棵完整的 vdom 树，
+    然后后面的循环就是对 vchildren 了，这样的话，它才是一棵真正的虚拟DOM 树的操作，这个地方
+ 为了我们确保 vchildren 一定存在，所以我们加一个判断，ensure 了一下它这个地方是有vchildren
+ 的，这样可以避免一些麻烦，如果我上来就直接 RENDER_TO_DOM ，没有取过 vdom ,那么这个地方就可
+ 以处理，
+    好，然后所有的 child 都会是 ElementRapper 这个类型的东西，然后这个时候，我们的newChild
+ 的里面，我们就去循环 newChildren ,
  **/
 class ElementWrapper extends Component {
     constructor(type) {
@@ -111,11 +226,16 @@ class ElementWrapper extends Component {
     }
 
     get vdom() {
+        this.vchildren = this.children.map(child => child.vdom);
         return this;
     }
 
+    /**
+        range 这里也需要保存一下
+     **/
     [RENDER_TO_DOM](range) {
-        range.deleteContents();
+        this._range = range;
+        // range.deleteContents();
 
         let root = document.createElement(this.type);
 
@@ -132,14 +252,18 @@ class ElementWrapper extends Component {
             }
         }
 
-        for (let child of this.children) {
+        if(!this.vchildren)
+            this.vchildren = this.children.map(child => child.vdom);
+
+        // for (let child of this.children) {
+        for (let child of this.vchildren) {
             let childRange = document.createRange();
             childRange.setStart(root, root.childNodes.length);
             childRange.setEnd(root, root.childNodes.length);
             child[RENDER_TO_DOM](childRange);
         }
-
-        range.insertNode(root);
+        replaceContent(range,root);
+        // range.insertNode(root);
     }
 
 }
@@ -149,23 +273,50 @@ class TextWrapper extends Component {
         super(content);
         this.type = "#text";
         this.content = content;
-        this.root = document.createTextNode(content);
+        // this.root = document.createTextNode(content);
     }
 
     get vdom() {
         return this;
     }
 
-    get vchildren() {
-        return this.children.map(child => child.vdom);
-    }
+    // get vchildren() {
+    //     return this.children.map(child => child.vdom);
+    // }
 
+    /**
+     range 这里也需要保存一下
+     **/
     [RENDER_TO_DOM](range) {
-        range.deleteContents();
-        range.insertNode(this.root);
+        this._range = range;
+        // range.deleteContents();
+        // range.insertNode(this.root);
+        let root = document.createTextNode(this.content);
+        replaceContent(range,root);
     }
 }
 
+/**
+    此时还存在，它会多删元素的这个 Bug ,这是因为我们的这个，我们的 ElementWrapper 和 TextWrapper
+ 我们都没有处理 range 先插入后删除的这个东西，因为这个地方，它好几个地方都用到，我们单独写一个单独的封装，
+ 我们叫 replaceContent ,
+    这个 node 会出现在这个 range 的最前面，这个时候我们再把 range.setStartAfter(node); 这个时候我
+ 们把 range 挪到 Node 之后，然后我们把 range 里面的内容，给它删掉，
+    然后删掉了内容，插入了也删除了，但是这个时候 range 不对了，所以我们把 range 设回来，就是这么样的一个
+ 逻辑，这主要是 range ,它的空 range 的一些比较难处理的情况啊，
+    那么在 [RENDER_TO_DOM](range) { } 里面，我们就添加上 replaceContent(range,this.root)； 的
+ 处理。
+    修改好之后，除了 RENDER_TO_DOM 这个私有方法之外，就全都是跟 dom 完全没有关系的， 顺手也把 TextWrapper
+ 也给它更新掉。
+ **/
+ function replaceContent(range,node){
+     range.insertNode(node);
+     range.setStartAfter(node);
+     range.deleteContents();
+
+     range.setStartBefore(node);
+     range.setEndAfter(node)
+}
 
 export function createElement(type, attributes, ...children) {
     let e;
@@ -207,6 +358,14 @@ export function render(component, parentElement) {
 }
 
 
+
+/**
+  其实我们的 toy-react 和真正的 react ,差距还是比较大的，因为大家都知道 React
+ 从14版本开始，那么开始使用 Fiber 架构，而新版本又加入了 Hooks 这样的 API ,
+ 然后在加上虚拟DOM 的 Diff 算法事件中心，这些基本上就是一个工业产品 和 一个讲
+ 原理的数字产品的区别了，不过希望我们的 toy-react 能够作为大家去阅读 React
+ 源码也好，编写类 React 的框架也好，能够作为这个的一个基础。
+ **/
 
 
 
