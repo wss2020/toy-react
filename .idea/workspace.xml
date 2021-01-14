@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e5723ab5-e49d-4dc7-8728-076cc954b583" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/toy-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/toy-react.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +77,10 @@
       <workItem from="1603674156645" duration="19840000" />
       <workItem from="1603764693416" duration="20000" />
       <workItem from="1603769059264" duration="7310000" />
-      <workItem from="1603851928503" duration="5145000" />
+      <workItem from="1603851928503" duration="5297000" />
+      <workItem from="1606888188961" duration="1202000" />
+      <workItem from="1606960606961" duration="6000" />
+      <workItem from="1606960626596" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;main.js">
       <created>1603549962949</created>
@@ -123,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603706102499</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="day3">
+      <created>1603857344031</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603857344031</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,9 +150,10 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1860" y="206" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270394637" />
-    <state x="1779" y="23" key="CommitChangelistDialog2" timestamp="1603706102367">
-      <screen x="1440" y="23" width="1440" height="877" />
+    <state x="339" y="0" key="CommitChangelistDialog2" timestamp="1603857343838">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="339" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603857343838" />
     <state x="1779" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1440.877@1440.23.1440.877" timestamp="1603706102367" />
     <state x="1892" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270338070" />
     <state x="339" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1603635345435" />
@@ -160,9 +169,14 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1949" y="263" key="MultipleFileMergeDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270371344" />
-    <state x="1785" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603706104020">
-      <screen x="1440" y="23" width="1440" height="877" />
+    <state x="451" y="102" key="RollbackChangesDialog" timestamp="1606960635820">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state x="451" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1606960635820" />
+    <state x="345" y="174" key="Vcs.Push.Dialog.v2" timestamp="1603857345665">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="345" y="174" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603857345665" />
     <state x="1785" y="193" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1440.877@1440.23.1440.877" timestamp="1603706104020" />
     <state x="1900" y="228" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603270347829" />
     <state x="345" y="193" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1603635346887" />
